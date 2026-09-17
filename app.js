@@ -1,13 +1,13 @@
 // CONFIGURACIÓN DE FIREBASE 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-import { 
-  getFirestore, 
-  collection, 
-  addDoc, 
-  onSnapshot, 
-  doc, 
-  getDoc, 
-  updateDoc, 
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  onSnapshot,
+  doc,
+  getDoc,
+  updateDoc,
   serverTimestamp,
   query,
   where,
@@ -181,7 +181,25 @@ const TRANSLATIONS = {
     btn_back: "⬅ Volver",
     footer_desc: "El juego social definitivo para reuniones, cenas y noches de debate.",
     footer_community: "Comunidad",
-    footer_recommended: "Recomendados"
+    footer_recommended: "Recomendados",
+    seo_summary: "📖 ¿Cómo jugar a DebateParty con tus amigos?",
+    seo_p1: "<strong>DebateParty</strong> es el juego social y de mesa digital definitivo para romper el hielo en cenas, reuniones, fiestas y noches de debate. El juego cuenta con más de <strong>1.200 preguntas y dilemas</strong> repartidos en categorías tan variadas como dilemas absurdos, dilemas morales y éticos, futurismo e inteligencia artificial, relaciones de pareja y temas picantes para adultos.",
+    seo_p2: "El funcionamiento es muy sencillo: selecciona una temática, configura el tiempo del temporizador de debate si lo deseas y vota las opciones de la comunidad. Cada pregunta abre un espacio de debate en tiempo real mediante comentarios y respuestas públicas donde podréis argumentar vuestras posturas, echaros unas risas y descubrir qué opina el resto del mundo. ¡Totalmente gratis, sin descargas y optimizado para jugar desde el móvil o el ordenador!",
+    support_title: "¿Te gusta DebateParty? Apoya el proyecto",
+    support_desc: "Descubre nuestras recomendaciones para elevar el nivel de tus partidas.",
+    btn_amazon_main: "¡Consigue Debatable en Amazon!",
+    footer_rec_title: "🔥 Juegos y accesorios recomendados para debatir",
+    footer_rec_desc: "Apoya el proyecto comprando tus juegos favoritos a través de nuestros enlaces:",
+    amazon_disclaimer: "En calidad de Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables.",
+    nav_privacy: "Política de Privacidad",
+    nav_terms: "Términos y Condiciones",
+    nav_about: "Sobre Nosotros",
+    privacy_title: "🔒 Política de Privacidad",
+    privacy_text: "En <strong>DebateParty</strong> valoramos y respetamos tu privacidad. Esta aplicación web utiliza cookies de terceros como Google AdSense para mostrar anuncios personalizados y medir el tráfico del sitio. Google recopila datos de uso según se detalla en sus políticas de privacidad. Los datos introducidos en el juego (como comentarios o votos) son públicos dentro de la comunidad de la plataforma. No almacenamos información personal sensible de los usuarios.",
+    terms_title: "📜 Términos y Condiciones",
+    terms_text: "El acceso y uso de <strong>DebateParty</strong> es totalmente gratuito. Los usuarios se comprometen a hacer un uso adecuado de las herramientas de debate y comentarios, evitando lenguaje ofensivo, discriminatorio o ilegal. La administración se reserva el derecho de eliminar comentarios o denuncias que incumplan las normas de convivencia de la comunidad.",
+    about_title: "💡 Sobre Nosotros",
+    about_text: "<strong>DebateParty</strong> nació como un proyecto independiente enfocado en el entretenimiento social, las reuniones con amigos y el debate abierto. Nuestro objetivo es ofrecer un espacio lúdico y dinámico donde las opiniones se crucen de forma sana y divertida a través de dilemas universales y cotidianos."
   },
   en: {
     btn_friends: "👥 Friends",
@@ -319,7 +337,25 @@ const TRANSLATIONS = {
     btn_back: "⬅ Back",
     footer_desc: "The ultimate party game for hangouts, dinners & debate nights.",
     footer_community: "Community",
-    footer_recommended: "Recommended"
+    footer_recommended: "Recommended",
+    seo_summary: "📖 How to play DebateParty with your friends?",
+    seo_p1: "<strong>DebateParty</strong> is the ultimate digital social and board party game to break the ice at dinners, gatherings, parties, and debate nights. The game features over <strong>1,200 questions and dilemmas</strong> across categories such as absurd dilemmas, moral and ethical dilemmas, future & AI, relationships, and spicy topics for adults.",
+    seo_p2: "Gameplay is very simple: choose a theme, set the debate timer if desired, and vote on community options. Each question opens a real-time debate space through public comments and replies where you can argue your stances, share laughs, and discover what the rest of the world thinks. Completely free, no downloads required, and optimized for mobile or desktop!",
+    support_title: "Like DebateParty? Support the project",
+    support_desc: "Discover our recommendations to level up your game nights.",
+    btn_amazon_main: "Get Debatable on Amazon!",
+    footer_rec_title: "🔥 Recommended games and accessories for debating",
+    footer_rec_desc: "Support the project by purchasing your favorite games through our links:",
+    amazon_disclaimer: "As an Amazon Associate, I earn from qualifying purchases.",
+    nav_privacy: "Privacy Policy",
+    nav_terms: "Terms & Conditions",
+    nav_about: "About Us",
+    privacy_title: "🔒 Privacy Policy",
+    privacy_text: "At <strong>DebateParty</strong> we value and respect your privacy. This web application uses third-party cookies such as Google AdSense to serve personalized ads and measure site traffic. Google collects usage data as detailed in their privacy policies. Data entered into the game (such as comments or votes) is public within the platform community. We do not store sensitive personal user information.",
+    terms_title: "📜 Terms & Conditions",
+    terms_text: "Access to and use of <strong>DebateParty</strong> is completely free. Users agree to make proper use of the debate and comment tools, avoiding offensive, discriminatory, or illegal language. Administration reserves the right to remove comments or reports that violate community coexistence rules.",
+    about_title: "💡 About Us",
+    about_text: "<strong>DebateParty</strong> was created as an independent project focused on social entertainment, hangouts with friends, and open debate. Our goal is to offer a fun and dynamic space where opinions intersect in a healthy and entertaining way through universal and everyday dilemmas."
   }
 };
 
@@ -442,7 +478,7 @@ let ytPlayer = null;
 const TRACK_MENU = '58XODsOaNvM';
 const TRACK_DEBATE = 'eMmNmmfnK60';
 
-window.onYouTubeIframeAPIReady = function() {
+window.onYouTubeIframeAPIReady = function () {
   ytPlayer = new YT.Player('yt-player', {
     height: '0', width: '0', videoId: TRACK_MENU,
     playerVars: { 'autoplay': 1, 'loop': 1, 'playlist': TRACK_MENU },
@@ -461,7 +497,7 @@ function setYoutubeVolume() {
   if (!ytPlayer || typeof ytPlayer.setVolume !== 'function') return;
   if (state.user.audioSettings.musicEnabled) {
     ytPlayer.setVolume(state.user.audioSettings.volume);
-    try { ytPlayer.playVideo(); } catch(e) {}
+    try { ytPlayer.playVideo(); } catch (e) { }
   } else {
     ytPlayer.pauseVideo();
   }
@@ -551,7 +587,7 @@ function showAchievementPopup(title, icon) {
   if (!popup) return;
   document.getElementById('ach-popup-icon').textContent = icon;
   document.getElementById('ach-popup-name').textContent = title;
-  
+
   popup.classList.add('show');
   playSound('start');
 
@@ -567,7 +603,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupPickerTheme();
   renderCustomDecksUI();
   setupQuestionPickerEvents();
-  
+
   document.querySelectorAll('button, select').forEach(el => {
     el.addEventListener('click', () => playSound('click'));
   });
@@ -610,7 +646,7 @@ function updateDynamicTexts(lang) {
   if (state.timerDurationSecs === 0) {
     document.getElementById('dial-text-val').textContent = TRANSLATIONS[lang].dial_no_limit;
   }
-  
+
   if (state.isRouletteMode) {
     document.getElementById('selected-topic-pill').textContent = TRANSLATIONS[lang].mystery_category;
   } else {
@@ -640,7 +676,7 @@ async function loadQuestionsDatabase(lang = 'es') {
     const response = await fetch(fileName);
     if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
     DATABASE = await response.json();
-    
+
     customDecks.forEach(deck => {
       DATABASE[deck.id] = deck.questions;
     });
@@ -660,8 +696,8 @@ function updateTagDisplays() {
 
 function goToStep(stepNumber) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  
-  if (stepNumber === 1 || stepNumber === 'friends' || stepNumber === 'history' || stepNumber === 'settings' || stepNumber === 'achievements' || stepNumber === 'custom-decks') {
+
+  if (stepNumber === 1 || stepNumber === 'friends' || stepNumber === 'history' || stepNumber === 'settings' || stepNumber === 'achievements' || stepNumber === 'custom-decks' || stepNumber === 'privacy' || stepNumber === 'terms' || stepNumber === 'about') {
     const appShell = document.querySelector('.app-shell');
     if (appShell) {
       appShell.className = 'app-shell';
@@ -693,6 +729,12 @@ function goToStep(stepNumber) {
   } else if (stepNumber === 'custom-decks') {
     document.getElementById('step-custom-decks').classList.add('active');
     renderCustomDecksUI();
+  } else if (stepNumber === 'privacy') {
+    document.getElementById('step-privacy').classList.add('active');
+  } else if (stepNumber === 'terms') {
+    document.getElementById('step-terms').classList.add('active');
+  } else if (stepNumber === 'about') {
+    document.getElementById('step-about').classList.add('active');
   } else {
     document.getElementById(`step-${stepNumber}`).classList.add('active');
     if (stepNumber === 1 || stepNumber === 4) {
@@ -710,6 +752,35 @@ function goToStep(stepNumber) {
   state.currentStep = stepNumber;
 }
 
+// EASTER EGG SECRETO
+let logoClicks = 0;
+document.getElementById('logo-btn').addEventListener('click', (e) => {
+  logoClicks++;
+  if (logoClicks >= 5) {
+    logoClicks = 0;
+    e.preventDefault();
+
+    let allPairs = [];
+    Object.keys(DATABASE).forEach(catKey => {
+      if (!catKey.startsWith('custom_')) {
+        const list = DATABASE[catKey] || [];
+        list.forEach(q => allPairs.push({ question: q, category: catKey }));
+      }
+    });
+
+    if (allPairs.length > 0) {
+      const randomPair = allPairs[Math.floor(Math.random() * allPairs.length)];
+      alert(`🎬 Generando Short aleatorio (${randomPair.category})...`);
+      generateShortVideo(randomPair.question, randomPair.category);
+    } else {
+      const fallbackQ = state.currentQuestionText || "¿Preferirías viajar al pasado o al futuro?";
+      const fallbackCat = state.selectedCategory || "absurd";
+      generateShortVideo(fallbackQ, fallbackCat);
+    }
+  }
+  setTimeout(() => { logoClicks = 0; }, 1500);
+});
+
 document.getElementById('logo-btn').addEventListener('click', () => { switchMusicTrack('menu'); goToStep(1); });
 document.getElementById('friends-btn').addEventListener('click', () => goToStep('friends'));
 document.getElementById('history-btn').addEventListener('click', () => goToStep('history'));
@@ -720,6 +791,15 @@ document.getElementById('close-history-btn').addEventListener('click', () => goT
 document.getElementById('close-profile-btn').addEventListener('click', () => goToStep(4));
 document.getElementById('close-achievements-btn').addEventListener('click', () => goToStep(1));
 document.getElementById('close-custom-decks-btn').addEventListener('click', () => goToStep(1));
+
+// EVENTOS LEGALES
+document.getElementById('nav-privacy').addEventListener('click', (e) => { e.preventDefault(); goToStep('privacy'); });
+document.getElementById('nav-terms').addEventListener('click', (e) => { e.preventDefault(); goToStep('terms'); });
+document.getElementById('nav-about').addEventListener('click', (e) => { e.preventDefault(); goToStep('about'); });
+
+document.getElementById('close-privacy-btn').addEventListener('click', () => goToStep(1));
+document.getElementById('close-terms-btn').addEventListener('click', () => goToStep(1));
+document.getElementById('close-about-btn').addEventListener('click', () => goToStep(1));
 
 document.getElementById('settings-btn').addEventListener('click', () => goToStep('settings'));
 document.getElementById('close-settings-btn').addEventListener('click', () => goToStep(1));
@@ -741,7 +821,7 @@ document.getElementById('save-settings-btn').addEventListener('click', () => {
   state.user.audioSettings.sfxEnabled = document.getElementById('sfx-toggle').checked;
   state.user.audioSettings.musicEnabled = document.getElementById('music-toggle').checked;
   state.user.audioSettings.volume = parseInt(document.getElementById('volume-slider').value);
-  
+
   localStorage.setItem('debate_party_user', JSON.stringify({
     username: state.user.username,
     tag: state.user.tag
@@ -749,7 +829,7 @@ document.getElementById('save-settings-btn').addEventListener('click', () => {
 
   updateTagDisplays();
   setYoutubeVolume();
-  
+
   alert(currentLang === 'es' ? "¡Ajustes guardados!" : "Settings saved!");
   goToStep(1);
 });
@@ -970,7 +1050,7 @@ document.getElementById('roulette-btn').addEventListener('click', () => {
 
   const topicCards = document.querySelectorAll('.topic-card');
   const topics = Array.from(topicCards).map(card => card.dataset.topic);
-  
+
   const allPool = [...topics, ...customDecks.map(d => d.id)];
   const randomSelection = allPool[Math.floor(Math.random() * allPool.length)];
   state.selectedCategory = randomSelection;
@@ -1073,7 +1153,6 @@ document.getElementById('start-game-btn').addEventListener('click', () => {
   startMatch();
 });
 
-// 🔄 FILTRO ANTI-REPETICIÓN DE PREGUNTAS Y CONTADOR EN VIVO (MANTIENE LA MISMA CATEGORÍA)
 function startMatch() {
   const list = DATABASE[state.selectedCategory] || [];
   if (list.length === 0) {
@@ -1101,7 +1180,7 @@ function startMatch() {
   }
 
   document.getElementById('question-text').textContent = state.currentQuestionText;
-  
+
   const topicKey = `topic_${state.selectedCategory}_title`;
   const isCustom = customDecks.find(d => d.id === state.selectedCategory);
   const categoryDisplayName = isCustom ? `🗂️ ${isCustom.name}` : (TRANSLATIONS[currentLang][topicKey] || state.selectedCategory.toUpperCase());
@@ -1126,30 +1205,42 @@ function startMatch() {
   goToStep(3);
 }
 
-// DETECTOR INTELIGENTE SÍ / NO / OPCIÓN A-B (Más robusto)
+function isOpenEndedQuestion(questionText) {
+  const text = questionText.trim().toLowerCase();
+  return (
+    text.startsWith('¿cómo') ||
+    text.startsWith('¿qué') ||
+    text.startsWith('¿cuál') ||
+    text.startsWith('¿quién') ||
+    text.startsWith('¿dónde') ||
+    text.startsWith('¿por qué') ||
+    text.startsWith('¿en qué') ||
+    text.startsWith('¿con qué') ||
+    text.startsWith('¿cuánto') ||
+    text.startsWith('¿cuántos')
+  );
+}
+
 function isYesNoQuestion(questionText) {
   const text = questionText.trim().toLowerCase();
-
-  // Si empieza por "¿preferirías" o "¿prefieres", o contiene disyuntivas (" o ", " pero "), es Opción A / Opción B
+  if (isOpenEndedQuestion(questionText)) return false;
   if (text.startsWith('¿preferirías') || text.startsWith('¿prefieres') || text.includes(' o ') || text.includes(' pero ')) {
     return false;
   }
-
-  const isOpenEnded = (
-    text.startsWith('¿cómo') || 
-    text.startsWith('¿qué') || 
-    text.startsWith('¿cuál') || 
-    text.startsWith('¿quién') || 
-    text.startsWith('¿dónde') || 
-    text.startsWith('¿por qué')
-  );
-  if (isOpenEnded) return false;
-
   const isExplicitChoice = text.includes('preferirías') || text.includes(' prefieres ') || text.includes(' antes que ');
   return !isExplicitChoice;
 }
 
 async function loadQuestionVotes() {
+  const votingContainer = document.getElementById('voting-buttons-box').parentNode;
+
+  if (isOpenEndedQuestion(state.currentQuestionText)) {
+    if (votingContainer) votingContainer.style.display = 'none';
+    return;
+  } else {
+    if (votingContainer) votingContainer.style.display = 'block';
+  }
+
   state.hasVotedCurrent = false;
   document.getElementById('voting-buttons-box').classList.remove('hidden');
   document.getElementById('voting-results-box').classList.add('hidden');
@@ -1158,13 +1249,13 @@ async function loadQuestionVotes() {
 
   if (isYesNo) {
     state.currentVoteLabels = {
-      a: currentLang === 'es' ? '👍 Sí' : '👍 Yes',
-      b: currentLang === 'es' ? '👎 No' : '👎 No'
+      a: currentLang === 'es' ? 'Sí' : 'Yes',
+      b: currentLang === 'es' ? 'No' : 'No'
     };
   } else {
     state.currentVoteLabels = {
-      a: currentLang === 'es' ? '🅰️ Opción A' : '🅰️ Option A',
-      b: currentLang === 'es' ? '🅱️ Opción B' : '🅱️ Option B'
+      a: currentLang === 'es' ? 'Opción A' : 'Option A',
+      b: currentLang === 'es' ? 'Opción B' : 'Option B'
     };
   }
 
@@ -1211,9 +1302,9 @@ async function castVote(option) {
         const currentB = data.votesB || 0;
         const updates = option === 'A' ? { votesA: currentA + 1 } : { votesB: currentB + 1 };
         await updateDoc(ref, updates);
-        updateVotingUI({ 
-          votesA: option === 'A' ? currentA + 1 : currentA, 
-          votesB: option === 'B' ? currentB + 1 : currentB 
+        updateVotingUI({
+          votesA: option === 'A' ? currentA + 1 : currentA,
+          votesB: option === 'B' ? currentB + 1 : currentB
         });
       }
     } else {
@@ -1224,9 +1315,9 @@ async function castVote(option) {
         createdAt: serverTimestamp()
       });
       state.currentQuestionDocId = newDoc.id;
-      updateVotingUI({ 
-        votesA: option === 'A' ? 1 : 0, 
-        votesB: option === 'B' ? 1 : 0 
+      updateVotingUI({
+        votesA: option === 'A' ? 1 : 0,
+        votesB: option === 'B' ? 1 : 0
       });
     }
 
@@ -1234,14 +1325,17 @@ async function castVote(option) {
     document.getElementById('voting-results-box').classList.remove('hidden');
   } catch (e) {
     console.error("❌ Error al registrar el voto en Firebase:", e);
-    state.hasVotedCurrent = false; 
+    state.hasVotedCurrent = false;
     alert("Hubo un error al registrar el voto. Revisa la consola (F12).");
   }
 }
 
 function updateVotingUI(data) {
-  const votesA = data.votesA || 0;
-  const votesB = data.votesB || 0;
+  // Obtener base de votos falsos para esta pregunta
+  const base = getBaseFakeVotes(state.currentQuestionText);
+  
+  const votesA = (data.votesA || 0) + base.fakeA;
+  const votesB = (data.votesB || 0) + base.fakeB;
   const total = votesA + votesB;
 
   const pctA = total > 0 ? Math.round((votesA / total) * 100) : 50;
@@ -1252,12 +1346,12 @@ function updateVotingUI(data) {
   const labelA = state.currentVoteLabels ? state.currentVoteLabels.a : 'A';
   const labelB = state.currentVoteLabels ? state.currentVoteLabels.b : 'B';
 
-  document.getElementById('label-vote-a').textContent = `${labelA} (${votesA}): ${pctA}%`;
-  document.getElementById('label-vote-b').textContent = `${labelB} (${votesB}): ${pctB}%`;
+  document.getElementById('label-vote-a').textContent = `${labelA} (${votesA.toLocaleString()}): ${pctA}%`;
+  document.getElementById('label-vote-b').textContent = `${labelB} (${votesB.toLocaleString()}): ${pctB}%`;
   document.getElementById('bar-vote-a').style.width = `${pctA}%`;
   document.getElementById('bar-vote-b').style.width = `${pctB}%`;
   
-  const totalText = currentLang === 'es' ? `Total votos de la comunidad: ${total}` : `Total community votes: ${total}`;
+  const totalText = currentLang === 'es' ? `Total votos de la comunidad: ${total.toLocaleString()}` : `Total community votes: ${total.toLocaleString()}`;
   document.getElementById('total-votes-text').textContent = totalText;
 }
 
@@ -1338,13 +1432,13 @@ function endMatch() {
   if (!state.stats.categoriesPlayed.includes(state.selectedCategory) && !isCustom) {
     state.stats.categoriesPlayed.push(state.selectedCategory);
   }
-  
+
   saveUserStats();
   checkAndUnlockAchievements();
 
   const now = new Date();
   const timeString = `${now.toLocaleDateString()} ${now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
-  
+
   const displayCatName = isCustom ? (customDecks.find(d => d.id === state.selectedCategory)?.name || 'Custom') : state.selectedCategory.toUpperCase();
 
   state.matchHistory.unshift({
@@ -1357,7 +1451,6 @@ function endMatch() {
   goToStep(4);
 }
 
-// Botón de Siguiente Debate (Mantiene la misma categoría actual)
 document.getElementById('next-question-same-config-btn').addEventListener('click', () => {
   playSound('start');
   switchMusicTrack('debate');
@@ -1444,16 +1537,16 @@ async function openQuestionDetail(questionText, categoryName) {
   state.detailCategory = categoryName;
 
   document.getElementById('detail-question-text').textContent = questionText;
-  
+
   const catLower = categoryName.toLowerCase();
   const topicKey = `topic_${catLower}_title`;
   const isCustom = customDecks.find(d => d.name.toLowerCase() === catLower);
   const categoryDisplayName = isCustom ? `🗂️ ${isCustom.name}` : (TRANSLATIONS[currentLang][topicKey] || categoryName);
   document.getElementById('detail-category-pill').textContent = categoryDisplayName;
-  
+
   applyCategoryTheme(isCustom ? 'custom' : catLower);
   goToStep('question-detail');
-  
+
   await fetchDetailQuestionVotes(questionText);
 
   setupDetailCommentsRealtime();
@@ -1467,19 +1560,24 @@ async function fetchDetailQuestionVotes(questionText) {
 
     const isYesNo = isYesNoQuestion(questionText);
 
-    const labelA = isYesNo ? (currentLang === 'es' ? '👍 Sí' : '👍 Yes') : (currentLang === 'es' ? '🅰️ Opción A' : '🅰️ Option A');
-    const labelB = isYesNo ? (currentLang === 'es' ? '👎 No' : '👎 No') : (currentLang === 'es' ? '🅱️ Opción B' : '🅱️ Option B');
+    const labelA = isYesNo ? (currentLang === 'es' ? 'Sí' : 'Yes') : (currentLang === 'es' ? 'Opción A' : 'Option A');
+    const labelB = isYesNo ? (currentLang === 'es' ? 'No' : 'No') : (currentLang === 'es' ? 'Opción B' : 'Option B');
 
     state.currentVoteLabels = { a: labelA, b: labelB };
 
-    let votesA = 0;
-    let votesB = 0;
+    let dbVotesA = 0;
+    let dbVotesB = 0;
 
     if (!snapshot.empty) {
       const data = snapshot.docs[0].data();
-      votesA = data.votesA || 0;
-      votesB = data.votesB || 0;
+      dbVotesA = data.votesA || 0;
+      dbVotesB = data.votesB || 0;
     }
+
+    // Sumar votos de la base de datos + votos falsos estables
+    const base = getBaseFakeVotes(questionText);
+    const votesA = dbVotesA + base.fakeA;
+    const votesB = dbVotesB + base.fakeB;
 
     const total = votesA + votesB;
     const pctA = total > 0 ? Math.round((votesA / total) * 100) : 50;
@@ -1487,12 +1585,12 @@ async function fetchDetailQuestionVotes(questionText) {
 
     state.currentVoteResults = { pctA, pctB, total };
 
-    document.getElementById('detail-label-vote-a').textContent = `${labelA} (${votesA}): ${pctA}%`;
-    document.getElementById('detail-label-vote-b').textContent = `${labelB} (${votesB}): ${pctB}%`;
+    document.getElementById('detail-label-vote-a').textContent = `${labelA} (${votesA.toLocaleString()}): ${pctA}%`;
+    document.getElementById('detail-label-vote-b').textContent = `${labelB} (${votesB.toLocaleString()}): ${pctB}%`;
     document.getElementById('detail-bar-vote-a').style.width = `${pctA}%`;
     document.getElementById('detail-bar-vote-b').style.width = `${pctB}%`;
     
-    const totalText = currentLang === 'es' ? `Total votos de la comunidad: ${total}` : `Total community votes: ${total}`;
+    const totalText = currentLang === 'es' ? `Total votos de la comunidad: ${total.toLocaleString()}` : `Total community votes: ${total.toLocaleString()}`;
     document.getElementById('detail-total-votes-text').textContent = totalText;
 
   } catch (e) {
@@ -1677,7 +1775,7 @@ function renderDetailCommentsUI(qComments) {
 
       const now = new Date();
       const timeString = `${now.toLocaleDateString()} ${now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
-      
+
       const newReply = {
         author: `${state.user.username}#${state.user.tag}`,
         text: text,
@@ -1881,7 +1979,7 @@ function renderCommentsUI(qComments) {
 
       const now = new Date();
       const timeString = `${now.toLocaleDateString()} ${now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
-      
+
       const newReply = {
         author: `${state.user.username}#${state.user.tag}`,
         text: text,
@@ -1924,7 +2022,6 @@ function renderFriendsChips() {
   }
 }
 
-// FUNCIÓN DE SEGURIDAD CONTRA XSS (Escapa caracteres HTML peligrosos)
 function escapeHtml(str) {
   if (typeof str !== 'string') return '';
   return str
@@ -1949,7 +2046,22 @@ async function generateAndShareCard(questionText, categoryName) {
     const theme = CATEGORY_COLORS[catKey] || CATEGORY_COLORS.custom || { bg: '#6d28d9', text: '#ffffff', border: '#8b5cf6' };
     const topicKey = `topic_${catKey}_title`;
     const isCustom = customDecks.find(d => d.name.toLowerCase() === catKey);
-    const categoryDisplayName = isCustom ? `🗂️ ${isCustom.name}` : (TRANSLATIONS[currentLang][topicKey] || categoryName);
+    const categoryDisplayName = isCustom ? customDecks.find(d => d.name.toLowerCase() === catKey).name : (TRANSLATIONS[currentLang][topicKey] || categoryName);
+
+    const fillRoundRect = (x, y, w, h, r) => {
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.lineTo(x + w - r, y);
+      ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+      ctx.lineTo(x + w, y + h - r);
+      ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+      ctx.lineTo(x + r, y + h);
+      ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+      ctx.lineTo(x, y + r);
+      ctx.quadraticCurveTo(x, y, x + r, y);
+      ctx.closePath();
+      ctx.fill();
+    };
 
     ctx.fillStyle = theme.bg;
     ctx.fillRect(0, 0, 1080, 1080);
@@ -1959,32 +2071,35 @@ async function generateAndShareCard(questionText, categoryName) {
     ctx.strokeRect(60, 60, 960, 960);
 
     ctx.fillStyle = theme.text;
-    ctx.font = '900 48px -apple-system, BlinkMacSystemFont, sans-serif';
+    ctx.font = '900 48px Arial, sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText('DebateParty', 540, 130);
+    ctx.fillText('🗣️ DebateParty', 540, 130);
+
+    ctx.font = '800 22px Arial, sans-serif';
+    const catText = categoryDisplayName.toUpperCase();
+    const textWidth = ctx.measureText(catText).width;
+    const pillWidth = textWidth + 70;
+    const pillHeight = 50;
+    const pillX = (1080 - pillWidth) / 2;
+    const pillY = 165;
 
     ctx.fillStyle = theme.text === '#ffffff' ? 'rgba(0, 0, 0, 0.25)' : 'rgba(0, 0, 0, 0.15)';
-    ctx.beginPath();
-    if (typeof ctx.roundRect === 'function') {
-      ctx.roundRect(180, 165, 720, 56, 28);
-    } else {
-      ctx.rect(180, 165, 720, 56);
-    }
-    ctx.fill();
+    fillRoundRect(pillX, pillY, pillWidth, pillHeight, 25);
 
     ctx.fillStyle = theme.text === '#ffffff' ? '#facc15' : theme.text;
-    ctx.font = '800 24px -apple-system, BlinkMacSystemFont, sans-serif';
-    ctx.fillText(`🏷️ ${categoryDisplayName.toUpperCase()}`, 540, 201);
+    ctx.textAlign = 'center';
+    ctx.fillText(catText, 540, pillY + 33);
 
     ctx.fillStyle = theme.text;
-    let fontSize = questionText.length > 130 ? 38 : (questionText.length > 80 ? 44 : 50);
-    ctx.font = `900 ${fontSize}px -apple-system, BlinkMacSystemFont, sans-serif`;
+    let fontSize = questionText.length > 130 ? 38 : (questionText.length > 80 ? 46 : 54);
+    ctx.font = `900 ${fontSize}px Arial, sans-serif`;
     ctx.textAlign = 'center';
-    
+    ctx.textBaseline = 'middle';
+
     const words = questionText.split(' ');
     let line = '';
     let lines = [];
-    let maxWidth = 860;
+    let maxWidth = 840;
 
     for (let i = 0; i < words.length; i++) {
       let testLine = line + words[i] + ' ';
@@ -1998,84 +2113,33 @@ async function generateAndShareCard(questionText, categoryName) {
     }
     lines.push(line);
 
-    let lineHeight = fontSize * 1.3;
+    let lineHeight = fontSize * 1.35;
     let totalTextHeight = lines.length * lineHeight;
-    let startY = 280;
+    let startY = 500 - (totalTextHeight / 2);
 
     lines.forEach((l, index) => {
       ctx.fillText(l.trim(), 540, startY + (index * lineHeight));
     });
 
-    let pollY = startY + totalTextHeight + 45; 
-
-    if (state.currentVoteResults && state.currentVoteResults.total > 0) {
-      const { pctA, pctB } = state.currentVoteResults;
-      const labelA = state.currentVoteLabels ? state.currentVoteLabels.a : 'A';
-      const labelB = state.currentVoteLabels ? state.currentVoteLabels.b : 'B';
-
-      ctx.fillStyle = theme.text;
-      ctx.font = '800 26px -apple-system, BlinkMacSystemFont, sans-serif';
-
-      ctx.textAlign = 'left';
-      ctx.fillText(`${labelA}: ${pctA}%`, 120, pollY);
-      ctx.textAlign = 'right';
-      ctx.fillText(`${labelB}: ${pctB}%`, 960, pollY);
-
-      pollY += 16;
-      ctx.fillStyle = theme.text === '#ffffff' ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.15)';
-      ctx.beginPath();
-      if (typeof ctx.roundRect === 'function') {
-        ctx.roundRect(120, pollY, 840, 32, 16);
-      } else {
-        ctx.rect(120, pollY, 840, 32);
-      }
-      ctx.fill();
-
-      const barWidthA = 840 * (pctA / 100);
-      if (barWidthA > 0) {
-        ctx.fillStyle = '#06b6d4';
-        ctx.beginPath();
-        if (typeof ctx.roundRect === 'function') {
-          ctx.roundRect(120, pollY, barWidthA, 32, 16);
-        } else {
-          ctx.rect(120, pollY, barWidthA, 32);
-        }
-        ctx.fill();
-      }
-
-      const barWidthB = 840 * (pctB / 100);
-      if (barWidthB > 0) {
-        ctx.fillStyle = '#ec4899';
-        ctx.beginPath();
-        if (typeof ctx.roundRect === 'function') {
-          ctx.roundRect(120 + barWidthA, pollY, barWidthB, 32, 16);
-        } else {
-          ctx.rect(120 + barWidthA, pollY, barWidthB, 32);
-        }
-        ctx.fill();
-      }
-    }
+    ctx.textBaseline = 'alphabetic';
 
     ctx.fillStyle = theme.text;
-    ctx.globalAlpha = 0.95; 
+    ctx.globalAlpha = 0.95;
     ctx.textAlign = 'center';
-    ctx.font = '800 32px -apple-system, BlinkMacSystemFont, sans-serif';
-    ctx.fillText('🔥 Entra a debatir en DebateParty', 540, 930);
-    
-    ctx.globalAlpha = 0.85; 
-    ctx.font = '600 22px -apple-system, BlinkMacSystemFont, sans-serif';
-    ctx.fillText('El juego social definitivo para reuniones y cenas', 540, 975);
+    ctx.font = '800 32px Arial, sans-serif';
+    ctx.fillText('debateparty.web.app', 540, 915);
+
+    ctx.globalAlpha = 0.85;
+    ctx.font = '600 22px Arial, sans-serif';
+    ctx.fillText('¡Entra gratis a debatir con tus amigos!', 540, 960);
     ctx.globalAlpha = 1.0;
 
     canvas.toBlob(async (blob) => {
-      if (!blob) {
-        alert("Error al generar la imagen.");
-        return;
-      }
+      if (!blob) return;
       const file = new File([blob], "debateparty-dilema.png", { type: "image/png" });
       const shareData = {
         title: 'DebateParty - Dilema',
-        text: `¡Mira este debate de DebateParty! 💬 "${questionText}"`,
+        text: `¡Mira este debate de DebateParty! 💬 "${questionText}"\n\n👉 Juega y vota en: https://debateparty.web.app`,
         files: [file]
       };
 
@@ -2093,13 +2157,266 @@ async function generateAndShareCard(questionText, categoryName) {
       link.href = canvas.toDataURL('image/png');
       link.click();
 
-      alert(currentLang === 'es' ? "📥 ¡Tarjeta descargada con éxito!" : "📥 Card downloaded successfully!");
+      navigator.clipboard.writeText('https://debateparty.web.app');
     }, 'image/png');
 
   } catch (err) {
     console.error("❌ Error en generateAndShareCard:", err);
-    alert("Hubo un error al generar la tarjeta para compartir.");
   }
+}
+
+// GENERADOR AUTOMÁTICO DE YOUTUBE SHORTS (Con reproducción aleatoria de tus MP3)
+async function generateShortVideo(questionText, categoryName) {
+  playSound('start');
+  
+  // Lista con tus archivos de música locales
+  const musicPlaylist = [
+    "./music/danirepmusica.mp3",
+    "./music/gravitational.mp3",
+    "./music/lluviamusicatriste.mp3",
+    "./music/guitarratiriritti.mp3",
+    "./music/darkguitar.mp3",
+    "./music/guitarraeditepico.mp3",
+    "./music/violin.mp3",
+    "./music/guitarraepicjaja.mp3"
+  ];
+
+  // Seleccionar una canción al azar de la lista
+  const randomSongUrl = musicPlaylist[Math.floor(Math.random() * musicPlaylist.length)];
+
+  const canvas = document.createElement('canvas');
+  canvas.width = 1080;
+  canvas.height = 1920;
+  const ctx = canvas.getContext('2d');
+
+  const catKey = categoryName.toLowerCase();
+  const theme = CATEGORY_COLORS[catKey] || CATEGORY_COLORS.custom || { bg: '#6d28d9', text: '#ffffff', border: '#8b5cf6' };
+  const topicKey = `topic_${catKey}_title`;
+  const isCustom = customDecks.find(d => d.name.toLowerCase() === catKey);
+  const categoryDisplayName = isCustom ? isCustom.name : (TRANSLATIONS[currentLang][topicKey] || categoryName);
+
+  // Cargar y sincronizar el audio con Web Audio API
+  const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+  const dest = audioContext.createMediaStreamDestination();
+  
+  let audioSource = null;
+  try {
+    const response = await fetch(randomSongUrl);
+    const arrayBuffer = await response.arrayBuffer();
+    const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+    
+    audioSource = audioContext.createBufferSource();
+    audioSource.buffer = audioBuffer;
+    audioSource.loop = true;
+    audioSource.connect(dest);
+  } catch (e) {
+    console.warn("⚠️ No se pudo cargar el archivo de audio, el vídeo saldrá sin música:", e);
+  }
+
+  const canvasStream = canvas.captureStream(30);
+  const audioStreamTracks = dest.stream.getAudioTracks();
+  
+  const combinedStream = new MediaStream([
+    ...canvasStream.getVideoTracks(),
+    ...(audioStreamTracks.length > 0 ? audioStreamTracks : [])
+  ]);
+
+  let recordedChunks = [];
+  let options = { mimeType: 'video/webm; codecs=vp9,opus', videoBitsPerSecond: 6000000 };
+  if (!MediaRecorder.isTypeSupported(options.mimeType)) {
+    options = { mimeType: 'video/webm', videoBitsPerSecond: 6000000 };
+  }
+  
+  let mediaRecorder;
+  try {
+    mediaRecorder = new MediaRecorder(combinedStream, options);
+  } catch (e) {
+    mediaRecorder = new MediaRecorder(combinedStream);
+  }
+
+  mediaRecorder.ondataavailable = (event) => {
+    if (event.data && event.data.size > 0) {
+      recordedChunks.push(event.data);
+    }
+  };
+
+  mediaRecorder.onstop = () => {
+    const blob = new Blob(recordedChunks, { type: 'video/webm' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `debateparty-short-${Date.now()}.webm`;
+    a.click();
+    if (audioContext && audioContext.state !== 'closed') {
+      audioContext.close();
+    }
+    alert("🎬 ¡Short con música aleatoria generado y descargado con éxito!");
+  };
+
+  mediaRecorder.start();
+  if (audioSource) {
+    audioSource.start(0);
+  }
+
+  let frame = 0;
+  const totalFrames = 240; // 8 segundos exactos
+
+  const fillRoundRect = (x, y, w, h, r) => {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.lineTo(x + w - r, y);
+    ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+    ctx.lineTo(x + w, y + h - r);
+    ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+    ctx.lineTo(x + r, y + h);
+    ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+    ctx.lineTo(x, y + r);
+    ctx.quadraticCurveTo(x, y, x + r, y);
+    ctx.closePath();
+    ctx.fill();
+  };
+
+  const renderInterval = setInterval(() => {
+    const bgGrad = ctx.createLinearGradient(0, 0, 1080, 1920);
+    bgGrad.addColorStop(0, '#090d16');
+    bgGrad.addColorStop(0.5, '#120d26');
+    bgGrad.addColorStop(1, '#1e1b4b');
+    ctx.fillStyle = bgGrad;
+    ctx.fillRect(0, 0, 1080, 1920);
+
+    ctx.save();
+    ctx.globalAlpha = 0.12;
+    ctx.fillStyle = theme.border || '#8b5cf6';
+    let cx1 = 200 + Math.sin(frame / 35) * 60;
+    let cy1 = 350 + Math.cos(frame / 35) * 60;
+    ctx.beginPath();
+    ctx.arc(cx1, cy1, 400, 0, Math.PI * 2);
+    ctx.fill();
+
+    let cx2 = 880 + Math.cos(frame / 30) * 70;
+    let cy2 = 1500 + Math.sin(frame / 30) * 70;
+    ctx.beginPath();
+    ctx.arc(cx2, cy2, 500, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+
+    ctx.fillStyle = '#ffffff';
+    ctx.font = '900 52px Arial, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('💬 DebateParty', 540, 150);
+    
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+    ctx.font = '700 24px Arial, sans-serif';
+    ctx.fillText('EL JUEGO DE DEBATES Y DILEMAS', 540, 205);
+
+    let floatY = Math.sin(frame / 22) * 16;
+    let scalePulse = 1 + Math.sin(frame / 40) * 0.008;
+
+    ctx.save();
+    ctx.translate(540, 980 + floatY);
+    ctx.scale(scalePulse, scalePulse);
+
+    const cardW = 920;
+    const cardH = 1100;
+    const cardX = -cardW / 2;
+    const cardY = -cardH / 2;
+
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+    ctx.shadowBlur = 40;
+    ctx.shadowOffsetX = 0;
+    ctx.shadowOffsetY = 20;
+
+    ctx.fillStyle = 'rgba(15, 23, 42, 0.94)';
+    ctx.strokeStyle = theme.border || '#4f46e5';
+    ctx.lineWidth = 6;
+    
+    ctx.beginPath();
+    ctx.roundRect(cardX, cardY, cardW, cardH, 36);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.shadowBlur = 0;
+    ctx.shadowOffsetY = 0;
+
+    ctx.font = '800 26px Arial, sans-serif';
+    const catText = categoryDisplayName.toUpperCase();
+    const catMetrics = ctx.measureText(catText);
+    const pillW = catMetrics.width + 80;
+    const pillH = 64;
+    const pillX = -pillW / 2;
+    const pillY = cardY + 70;
+
+    ctx.fillStyle = theme.bg;
+    fillRoundRect(pillX, pillY, pillW, pillH, 32);
+
+    ctx.fillStyle = theme.text;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(catText, 0, pillY + pillH / 2);
+
+    const boxW = 800;
+    const boxH = 650;
+    const boxX = -boxW / 2;
+    const boxY = pillY + pillH + 50;
+
+    ctx.fillStyle = theme.bg;
+    fillRoundRect(boxX, boxY, boxW, boxH, 28);
+
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.35)';
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.roundRect(boxX, boxY, boxW, boxH, 28);
+    ctx.stroke();
+
+    ctx.fillStyle = theme.text;
+    let fontSize = questionText.length > 120 ? 40 : (questionText.length > 70 ? 48 : 56);
+    ctx.font = `900 ${fontSize}px Arial, sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+
+    const words = questionText.split(' ');
+    let line = '';
+    let lines = [];
+    let maxTextWidth = boxW - 80;
+
+    for (let i = 0; i < words.length; i++) {
+      let testLine = line + words[i] + ' ';
+      if (ctx.measureText(testLine).width > maxTextWidth && i > 0) {
+        lines.push(line);
+        line = words[i] + ' ';
+      } else {
+        line = testLine;
+      }
+    }
+    lines.push(line);
+
+    let lineHeight = fontSize * 1.35;
+    let totalTextHeight = lines.length * lineHeight;
+    let startTextY = boxY + (boxH / 2);
+    let currentY = startTextY - (totalTextHeight / 2) + (lineHeight / 2);
+
+    lines.forEach((l) => {
+      ctx.fillText(l.trim(), 0, currentY);
+      currentY += lineHeight;
+    });
+
+    ctx.restore();
+
+    ctx.textBaseline = 'alphabetic';
+    ctx.fillStyle = '#facc15';
+    ctx.font = '900 42px Arial, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('👉 Entra a debatir en debateparty.web.app', 540, 1780);
+
+    frame++;
+    if (frame >= totalFrames) {
+      clearInterval(renderInterval);
+      if (audioSource) {
+        try { audioSource.stop(); } catch(e){}
+      }
+      mediaRecorder.stop();
+    }
+  }, 1000 / 30);
 }
 
 document.getElementById('share-dilemma-btn').addEventListener('click', () => {
@@ -2123,7 +2440,7 @@ function setupProposalModalTheme() {
   const updateModalTheme = () => {
     const selectedCat = proposalCategorySelect.value;
     const theme = CATEGORY_COLORS[selectedCat] || CATEGORY_COLORS.absurd;
-    
+
     proposalModalCard.style.backgroundColor = theme.bg;
     proposalModalCard.style.color = theme.text;
     proposalModalCard.style.borderColor = theme.border;
@@ -2181,4 +2498,25 @@ if (sendProposalBtn) {
       alert(TRANSLATIONS[currentLang].proposal_alert_error);
     }
   });
+};
+
+// SISTEMA DE VOTOS FALSOS BASE (Determinista por texto de pregunta)
+function getBaseFakeVotes(questionText) {
+  let hash = 0;
+  for (let i = 0; i < questionText.length; i++) {
+    hash = (hash << 5) - hash + questionText.charCodeAt(i);
+    hash |= 0;
+  }
+  const positiveHash = Math.abs(hash);
+  
+  // Total de votos falsos entre 1.200 y 6.500
+  const totalFake = 1200 + (positiveHash % 5300);
+  
+  // Reparto porcentual realista entre opción A y B (entre 35% y 75% para la A)
+  const ratioA = 0.35 + ((positiveHash % 40) / 100);
+  
+  const fakeA = Math.round(totalFake * ratioA);
+  const fakeB = totalFake - fakeA;
+  
+  return { fakeA, fakeB };
 }
